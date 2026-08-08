@@ -40,6 +40,10 @@ outputs/*/cache/
 !eval/benchmarks/.gitkeep
 !eval/scores/.gitkeep
 
+# 例外: 项目交付物 (财务三表 / 研报 Word) 入仓
+!projects/**/financials.xlsx
+!projects/**/report.docx
+
 # 凭证 / API key (绝不入仓!)
 **/credentials*
 **/.api_keys
