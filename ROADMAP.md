@@ -37,8 +37,8 @@
 - [ ] 06 visual-designer 给出可复用视觉规范
 
 ## 配套 (已就位)
-- [x] `mavis-agents/bitgates-researcher` (BitGates Researcher) — Ryan 机已 install, 朋友机待 install
-- [x] 25 个配套 skill 清单见 `mavis-agents/skills-manifest.md` (24 内置, 1 待确认 `taste-skill-v1`)
+- [x] `mavis-agents/shouren-researcher` (守仁研究) — Ryan 机已 install, 朋友机待 install
+- [x] 24 个配套 skill 全内置 ✅, 见 `mavis-agents/skills-manifest.md` (taste-skill-v1 已删除)
 
 ## 阶段 2 — pipeline 串联
 - [ ] 01 → 02 → 04 → 05 → 06 端到端跑通
