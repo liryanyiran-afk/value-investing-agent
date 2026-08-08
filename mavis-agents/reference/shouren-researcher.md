@@ -1,5 +1,15 @@
 # Shouren Researcher (守仁研究) — Mavis Agent Spec
 
+> 🧊 **状态: FROZEN v0.1 (2026-08-08)**
+>
+> 本文件是 Ryan LI 沉淀的 M3 卖方研究方法论, 已完成, **不再演进**.
+>
+> 当前位置: `mavis-agents/reference/` (归档为"参考档案").
+>
+> **未来 M3 顶层工作以 [`decisions/0002-shouren-as-archive.md`](../../../decisions/0002-shouren-as-archive.md) 为准**, 提炼进 04-analyst v0.2 的具体计划见 [`../../../prompts/analyst/extraction-notes.md`](../../../prompts/analyst/extraction-notes.md).
+>
+> 当前 canonical 投研分析由 [`../../agents/04-analyst.md`](../../agents/04-analyst.md) 承担.
+
 > 卖方研究分析师 agent. 守仁资产研究 设计, 价值投资价值发现, 投行级研报产出.
 
 ## 元信息
@@ -182,3 +192,4 @@ mavis agent create \
 ## 更新历史
 
 - 2026-08-08: 初版, Ryan LI 设计 (从 BitGates Researcher 改名)
+- 2026-08-08: 移入 `reference/`, 加 🧊 frozen banner, 决策见 ADR 0002
