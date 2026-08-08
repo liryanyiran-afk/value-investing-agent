@@ -18,11 +18,15 @@
 5. 合并后, 在 README 索引加一行
 
 ## 索引
-_暂无_
+| # | 标题 | 状态 | 日期 |
+|---|---|---|---|
+| 0002 | [shouren-researcher 降级为参考档案](0002-shouren-as-archive.md) | 已接受 | 2026-08-08 |
+| 0003 | [双层架构 (M3 + Pipeline)](0003-two-layer-architecture.md) | 已接受 | 2026-08-08 |
 
 ## 重要决策 (会改变方向的)
-- 价值投资方法论选择 (Graham / Buffett / Munger / Marks 等)
-- 数据源选择
-- 视觉风格定调
-- 模板选择
-- 是否引入新模块
+- 价值投资方法论选择 (Graham / Buffett / Munger / Marks 等) — _待定_
+- 数据源选择 — _已记录在 `docs/data-sources.md`_
+- 视觉风格定调 — _已记录在 `agents/06-visual-designer.md` (wancheng 配色)_
+- 模板选择 — _已记录在 `agents/05-writer.md` (initiation 优先)_
+- 是否引入新模块 — _已记录在 ADR 0003 (双层架构, 不引第三层)_
+- 架构分层 (M3 vs Pipeline) — **ADR 0003**

@@ -2,6 +2,16 @@
 
 > 金融终端 API 接入层。统一封装 Wind / Bloomberg / Choice / iFinD 等的差异, 暴露标准化数据点。
 
+## Pipeline Position
+- 位置: 旁路 (01 和 04 都可以调用, 不是必经 stage)
+- 上游: — (按需被 01 / 04 调用)
+- 下游: — (写入供 01 / 04 读)
+- 读取: —
+- 写入: `outputs/<target>/<date>/03-terminal/terminal_data.yaml`
+- 契约: 见 [`docs/contracts.md`](../docs/contracts.md#03-terminal-bridge)
+- 架构: 见 [`docs/architecture.md`](../docs/architecture.md)
+- 跑分卡: 用通用 6 维度 (03 是工具型 agent, 不单建打分卡)
+
 ## 职责
 - 封装主流金融数据 API
 - 统一数据格式 (字段命名 / 单位 / 时区)

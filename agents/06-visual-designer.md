@@ -2,6 +2,16 @@
 
 > 视觉呈现 agent。把 05 的研报 markdown 稿转成 PDF / PPT / 一页纸, 视觉达头部机构水平。
 
+## Pipeline Position
+- 位置: 6/6 (end)
+- 上游: 05 writer
+- 下游: — (end, 交付给用户)
+- 读取: `outputs/<target>/<date>/05-writer/report.md`
+- 写入: `outputs/<target>/<date>/06-visual/{report-final.pdf, deck.pptx, onepager.png}`
+- 契约: 见 [`docs/contracts.md`](../docs/contracts.md#06-visual-designer)
+- 架构: 见 [`docs/architecture.md`](../docs/architecture.md)
+- 跑分卡: [`eval/scoring-sheets/06-visual-designer.md`](../eval/scoring-sheets/06-visual-designer.md)
+
 ## 职责
 - 跨平台字体规范 (Calibri + SimSun, 不碰 macOS 专有字体)
 - 投行研报 5 页标准结构

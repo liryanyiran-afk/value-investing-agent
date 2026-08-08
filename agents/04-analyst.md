@@ -2,6 +2,17 @@
 
 > 价值投资分析 agent。基于清洗后的数据, 输出可投决的分析框架。
 
+## Pipeline Position
+- 位置: 4/6 (pipeline 中枢)
+- 上游: 02 data-cleaner (强), 03 terminal-bridge (弱, 可选)
+- 下游: 05 writer
+- 读取: `outputs/<target>/<date>/02-cleaner/cleaned.yaml` (+ 可选 `03-terminal/terminal_data.yaml`)
+- 写入: `outputs/<target>/<date>/04-analyst/analysis.yaml` + `analysis.md`
+- 契约: 见 [`docs/contracts.md`](../docs/contracts.md#04-analyst)
+- 架构: 见 [`docs/architecture.md`](../docs/architecture.md)
+- 跑分卡: [`eval/scoring-sheets/04-analyst.md`](../eval/scoring-sheets/04-analyst.md) (10 维度, 最细)
+- 参考档案: [`mavis-agents/reference/shouren-researcher.md`](../mavis-agents/reference/shouren-researcher.md) (frozen v0.1, 提炼计划见 [`prompts/analyst/extraction-notes.md`](../prompts/analyst/extraction-notes.md))
+
 ## 职责
 - 业务理解: 商业模式 / 护城河 / 管理层
 - 财务分析: 三大表 + 杜邦 + 现金流质量
