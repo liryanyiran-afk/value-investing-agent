@@ -2,6 +2,16 @@
 
 > 数据清洗 & 结构化 agent。把 01 拉来的原始素材 (PDF/HTML/JSON) 整理成结构化数据。
 
+## Pipeline Position
+- 位置: 2/6
+- 上游: 01 data-collector
+- 下游: 04 analyst
+- 读取: `outputs/<target>/<date>/01-collector/collection.yaml`
+- 写入: `outputs/<target>/<date>/02-cleaner/cleaned.yaml` + `extracted/`
+- 契约: 见 [`docs/contracts.md`](../docs/contracts.md#02-data-cleaner)
+- 架构: 见 [`docs/architecture.md`](../docs/architecture.md)
+- 跑分卡: 用通用 6 维度 (02 是工具型 agent, 不单建打分卡)
+
 ## 职责
 - PDF 文字 / 表格抽取 (财务三表, 业务数据)
 - 命名实体识别 (公司 / 人物 / 产品)

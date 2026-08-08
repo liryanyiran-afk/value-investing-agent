@@ -2,6 +2,16 @@
 
 > 原始数据拉取 agent。从公开数据源 & 终端拉取标的相关的所有原始素材。
 
+## Pipeline Position
+- 位置: 1/6 (start)
+- 上游: — (无)
+- 下游: 02 data-cleaner
+- 读取: —
+- 写入: `outputs/<target>/<date>/01-collector/collection.yaml` + `raw/`
+- 契约: 见 [`docs/contracts.md`](../docs/contracts.md#01-data-collector)
+- 架构: 见 [`docs/architecture.md`](../docs/architecture.md)
+- 跑分卡: [`eval/scoring-sheets/01-data-collector.md`](../eval/scoring-sheets/01-data-collector.md)
+
 ## 职责
 - 给定标的 (股票代码 / 公司名), 拉取:
   - 招股书 / 财报 PDF

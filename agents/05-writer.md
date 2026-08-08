@@ -2,6 +2,16 @@
 
 > 研报书写 agent。把 04 的分析结果写成"接近头部金融机构水平"的买方研报。
 
+## Pipeline Position
+- 位置: 5/6
+- 上游: 04 analyst
+- 下游: 06 visual-designer
+- 读取: `outputs/<target>/<date>/04-analyst/analysis.yaml` + `analysis.md`
+- 写入: `outputs/<target>/<date>/05-writer/report.md` + `report-summary.docx` + `report-data.xlsx`
+- 契约: 见 [`docs/contracts.md`](../docs/contracts.md#05-writer)
+- 架构: 见 [`docs/architecture.md`](../docs/architecture.md)
+- 跑分卡: [`eval/scoring-sheets/05-writer.md`](../eval/scoring-sheets/05-writer.md)
+
 ## 职责
 - 套用头部研报模板 (首次覆盖 / 深度跟踪 / 行业策略)
 - 把分析点串成有逻辑链的叙事
