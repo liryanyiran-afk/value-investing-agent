@@ -1,0 +1,264 @@
+# 01-collector/collection.yaml
+# 霸王茶姬 CHAGEE 数据采集 — v0.1 (2026-08-08)
+# 采集范围: SEC EDGAR 公开 filings + 媒体覆盖 + 行情 (Yahoo Finance)
+# 状态: scaffold + URL 索引, raw PDF 未下载 (不入仓)
+
+target:
+  company: "Chagee Holdings Ltd."
+  chinese_name: "霸王茶姬"
+  brand: "CHAGEE"
+  ticker: "CHA"
+  exchange: "NASDAQ"
+  cik: "0002013649"
+  sec_file_number: "001-42598"
+  sic: "5810"
+  state_of_incorporation: "Cayman Islands"
+  hq_state: "F4 (Cayman) / Sichuan (operations)"
+  listing_date: "2025-04-17"
+  collector_version: "data-collector-v0.1"
+  collected_at: "2026-08-08T15:30:00+08:00"
+
+items:
+  # ===== SEC EDGAR 核心 filings (按时间倒序) =====
+
+  # FY2025 年报 (2026-04-29 提交, 涵盖 2025 整年财务)
+  - id: 20F-FY2025
+    source: sec_edgar
+    type: 20-F
+    form: "20-F"
+    title: "Chagee Holdings Ltd. Form 20-F for FY2025"
+    filed_date: "2026-04-29"
+    period_of_report: "2025-12-31"
+    accession_number: "0001104659-26-050766"
+    file_number: "001-42598"
+    primary_doc: "cha-20251231x20f.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926050766/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926050766/cha-20251231x20f.htm"
+    priority: P0  # 最新年报, 最关键
+    estimated_size_mb: 5
+    notes: |
+      FY2025 完整年报, 含 2025 营收/利润/三大表/管理层/MD&A/Risk Factors
+      是 Analyst 02 cleaner 的主要输入
+
+  # 2026-05-29 6-K (Q1 2026 业绩, 最新)
+  - id: 6K-2026Q1
+    source: sec_edgar
+    type: 6-K
+    form: "6-K"
+    title: "Q1 2026 Earnings Release (6-K)"
+    filed_date: "2026-05-29"
+    period_of_report: "2026-03-31"
+    accession_number: "0001104659-26-067770"
+    file_number: "001-42598"
+    primary_doc: "tm2615738d1_6k.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926067770/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926067770/tm2615738d1_6k.htm"
+    url_press_release: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926067770/tm2615738d1_ex99-1.htm"
+    priority: P0  # 最新季度业绩
+    estimated_size_mb: 0.5
+    notes: |
+      2026 Q1 业绩 + press release, 含 2026 Q1 vs 2025 Q1 对比
+
+  # 2026-03-31 6-K (Q4 2025 / FY2025 业绩)
+  - id: 6K-2025Q4
+    source: sec_edgar
+    type: 6-K
+    form: "6-K"
+    title: "Q4 2025 / FY2025 Earnings Release (6-K)"
+    filed_date: "2026-03-31"
+    period_of_report: "2025-12-31"
+    accession_number: "0001104659-26-037353"
+    file_number: "001-42598"
+    primary_doc: "tm2610595d1_6k.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926037353/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926037353/tm2610595d1_6k.htm"
+    url_press_release: "https://www.sec.gov/Archives/edgar/data/2013649/000110465926037353/tm2610595d1_ex99-1.htm"
+    priority: P0
+    estimated_size_mb: 0.5
+    notes: |
+      FY2025 全年业绩 press release, 跟 20-F 互为补充
+
+  # 2025-11-28 6-K (Q3 2025)
+  - id: 6K-2025Q3
+    source: sec_edgar
+    type: 6-K
+    form: "6-K"
+    title: "Q3 2025 Earnings Release (6-K)"
+    filed_date: "2025-11-28"
+    period_of_report: "2025-09-30"
+    accession_number: "0001104659-25-116606"
+    file_number: "001-42598"
+    primary_doc: "tm2532281d1_6k.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925116606/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925116606/tm2532281d1_6k.htm"
+    url_press_release: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925116606/tm2532281d1_ex99-1.htm"
+    priority: P1
+    estimated_size_mb: 0.5
+    notes: |
+      Q3 2025 (上市后首份完整季报)
+
+  # 2025-08-29 6-K (Q2 2025)
+  - id: 6K-2025Q2
+    source: sec_edgar
+    type: 6-K
+    form: "6-K"
+    title: "Q2 2025 Earnings Release (6-K)"
+    filed_date: "2025-08-29"
+    period_of_report: "2025-06-30"
+    accession_number: "0001104659-25-085129"
+    file_number: "001-42598"
+    primary_doc: "tm2524624d1_6k.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925085129/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925085129/tm2524624d1_6k.htm"
+    url_press_release: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925085129/tm2524624d1_ex99-1.htm"
+    priority: P1
+    estimated_size_mb: 0.5
+    notes: |
+      Q2 2025 (上市后首份完整半年报)
+
+  # 2025-05-30 6-K (Q1 2025)
+  - id: 6K-2025Q1
+    source: sec_edgar
+    type: 6-K
+    form: "6-K"
+    title: "Q1 2025 Earnings Release (6-K)"
+    filed_date: "2025-05-30"
+    period_of_report: "2025-03-31"
+    accession_number: "0001104659-25-054520"
+    file_number: "001-42598"
+    primary_doc: "tm2516471d1_6k.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925054520/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925054520/tm2516471d1_6k.htm"
+    url_press_release: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925054520/tm2516471d1_ex99-1.htm"
+    priority: P1
+    estimated_size_mb: 0.5
+    notes: |
+      Q1 2025 (上市后首份季报)
+
+  # 424B4 最终招股书 (2025-04-18 上市)
+  - id: 424B4-FINAL
+    source: sec_edgar
+    type: prospectus
+    form: "424B4"
+    title: "Final Prospectus (424B4) — IPO 2025-04-17"
+    filed_date: "2025-04-18"
+    accession_number: "0001104659-25-036228"
+    file_number: "333-286081"
+    primary_doc: "tm246985-42_424b4.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925036228/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925036228/tm246985-42_424b4.htm"
+    priority: P0  # 招股书, 业务/管理层/IPO 关键
+    estimated_size_mb: 8
+    notes: |
+      IPO 定价 28 USD/ADS, 募资 4.11 亿美元, 首日市值 60 亿美元
+      含完整公司画像/历史财务/管理层/股东/风险
+
+  # F-1/A 最终版 (2025-04-14)
+  - id: F1A-FINAL
+    source: sec_edgar
+    type: registration
+    form: "F-1/A"
+    title: "Final Registration Statement (F-1/A) — IPO"
+    filed_date: "2025-04-14"
+    accession_number: "0001104659-25-034412"
+    file_number: "333-286081"
+    primary_doc: "tm246985d34_f1a.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925034412/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925034412/tm246985d34_f1a.htm"
+    priority: P1  # F-1 跟 424B4 内容大量重叠
+    estimated_size_mb: 10
+    notes: |
+      跟 424B4 内容相似, 424B4 是 final, 优先级更高
+
+  # 原始 F-1 (2025-03-25)
+  - id: F1-ORIG
+    source: sec_edgar
+    type: registration
+    form: "F-1"
+    title: "Initial Registration Statement (F-1)"
+    filed_date: "2025-03-25"
+    accession_number: "0001104659-25-027648"
+    file_number: "333-286081"
+    primary_doc: "tm246985-23_f1.htm"
+    url_index: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925027648/"
+    url_primary: "https://www.sec.gov/Archives/edgar/data/2013649/000110465925027648/tm246985-23_f1.htm"
+    priority: P2
+    estimated_size_mb: 12
+    notes: |
+      原始 F-1, 含所有 exhibits (子公司列表 / 合同 / 法律意见)
+
+  # ===== 价格数据 (从 Yahoo Finance) =====
+
+  - id: PRICE-DAILY
+    source: yahoo_finance
+    type: price_history
+    title: "CHA daily price since IPO 2025-04-17"
+    url: "https://query1.finance.yahoo.com/v7/finance/download/CHA?period1=1744848000&period2=1786176000&interval=1d&events=history"
+    api_method: "yahoo_finance_v7"
+    ticker: "CHA"
+    period_start: "2025-04-17"
+    period_end: "2026-08-08"
+    priority: P0  # 估值必需
+    notes: |
+      Yahoo Finance 免费 API, 1d 间隔, 含 OHLCV
+      区间: 1744848000 (2025-04-17) → 1786176000 (2026-08-08)
+
+  # ===== 行业数据 (从公开新闻 / 灼识咨询引用) =====
+
+  - id: INDUSTRY-CY2024
+    source: industry_report_quote
+    type: industry_data
+    title: "中国现制茶饮行业 2024 (引用灼识咨询 / 沙利文 / 艾瑞)"
+    data_year: 2024
+    priority: P1
+    notes: |
+      F-1 / 招股书已引用灼识咨询 (Frost & Sullivan) 行业数据
+      Analyst 02 cleaner 从 424B4 抽取即可, 不需另找原始报告
+
+  # ===== 媒体覆盖 (供 analyst 06 写 narrative) =====
+
+  - id: MEDIA-COVERAGE
+    source: web_search
+    type: news
+    title: "霸王茶姬 / Chagee 主流财经媒体覆盖"
+    search_terms:
+      - "霸王茶姬 加盟"
+      - "Chagee franchise model"
+      - "霸王茶姬 出海"
+      - "Chagee IPO"
+      - "霸王茶姬 海外门店"
+      - "Chagee competition Mixue"
+    priority: P2
+    notes: |
+      媒体引用作为研报 narrative 的证据, analyst 04 跑
+
+# ===== 下载状态 =====
+download_status:
+  local_storage: "raw/ (gitignored, 不入仓)"
+  downloaded_files: []
+  pending_files: 7  # 4 份 P0 + 3 份 P1
+
+# ===== 关键 stats 速读 (从公开来源, 给 analyst 当 hint) =====
+preliminary_stats:
+  source: "Bilibili 财经视频 2025-04-20 / 招股书摘要"
+  ipo_date: "2025-04-17"
+  ipo_price_usd: 28.00
+  ipo_proceeds_usd_m: 411
+  first_day_market_cap_usd_b: 6.0
+  fy2024_revenue_cny_b: 124.05  # 124.05 亿元
+  fy2024_gmv_cny_b: 295  # GMV 295 亿
+  fy2024_net_margin: 0.203  # 20.3%
+  franchised_stores_pct: 0.97
+  store_closure_rate_2023_2024: "0.5%-1.5%"
+  monthly_avg_gmv_per_store_cny: 510000  # 51 万
+  overseas_stores_count: 156
+  key_shareholder: "XVC (2020 seed)"
+  notes: "⚠️ 上数待 02 cleaner 从 20-F 跟 424B4 正式抽取后修正, 当前为 hint"
+
+# ===== 备注 =====
+notes: |
+  - 上市 1.5 年, 5 份季报 + 1 份年报, 数据完整性好
+  - 没 Wind/Bloomberg, 行情用 Yahoo Finance
+  - 行业数据从招股书引用抽 (灼识咨询), 第三方报告不另找
+  - 媒体作为 narrative 证据, 不强制 download
+  - raw/ 目录 gitignore, 不入仓 (PDF 大)
