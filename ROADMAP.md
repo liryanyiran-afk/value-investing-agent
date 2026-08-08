@@ -36,6 +36,10 @@
 - [ ] 05 writer 输出首份"接近头部机构水平"的研报
 - [ ] 06 visual-designer 给出可复用视觉规范
 
+## 配套 (已就位)
+- [x] `mavis-agents/bitgates-researcher` (BitGates Researcher) — Ryan 机已 install, 朋友机待 install
+- [x] 25 个配套 skill 清单见 `mavis-agents/skills-manifest.md` (24 内置, 1 待确认 `taste-skill-v1`)
+
 ## 阶段 2 — pipeline 串联
 - [ ] 01 → 02 → 04 → 05 → 06 端到端跑通
 - [ ] eval/ 跑分机制常态化
