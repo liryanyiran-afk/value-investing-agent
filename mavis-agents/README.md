@@ -6,7 +6,7 @@
 
 | Agent | 用途 | 状态 |
 |---|---|---|
-| `bitgates-researcher` | 投行/卖方研究分析师, 5 页 PPT + PUA 闭环 | 🟢 v0.1 (2026-08-08) |
+| `shouren-researcher` | 守仁资产研究 卖方研究分析师, 5 页 PPT + PUA 闭环 | 🟢 v0.1 (2026-08-08) |
 
 ## 安装 (本机)
 
@@ -18,10 +18,10 @@
 
 ```bash
 mavis agent create \
-  --name "bitgates-researcher" \
-  --display-name "BitGates Researcher" \
-  --description "投行/卖方研究分析师, 5 页 PPT + PUA 闭环" \
-  --system-prompt "$(cat bitgates-researcher.md)"
+  --name "shouren-researcher" \
+  --display-name "Shouren Research" \
+  --description "守仁资产研究 卖方研究分析师, 5 页 PPT + PUA 闭环" \
+  --system-prompt "$(awk '/^````markdown$/{flag=1; next} /^````$/{flag=0} flag' shouren-researcher.md)"
 ```
 
 ## 调用
@@ -29,13 +29,13 @@ mavis agent create \
 安装后, 在 Mavis UI 里:
 
 ```
-@bitgates-researcher 给 0700.HK 出一份 Initiation 报告
+@shouren-researcher 给 0700.HK 出一份 Initiation 报告
 ```
 
 或在 mavis 命令行:
 
 ```bash
-mavis agent invoke bitgates-researcher --task "给 0700.HK 出 Initiation 报告"
+mavis agent invoke shouren-researcher --task "给 0700.HK 出 Initiation 报告"
 ```
 
 ## 跨人共享
