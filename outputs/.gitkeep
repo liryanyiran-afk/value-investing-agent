@@ -1,0 +1,2 @@
+# 保留此文件让 outputs/ 目录能入仓
+# 真实输出物会建在 outputs/<target>-<date>/ 子目录
