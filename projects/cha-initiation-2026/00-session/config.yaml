@@ -1,0 +1,75 @@
+# 00-session/config.yaml
+# 项目启动配置 — 霸王茶姬 CHAGEE Initiation
+
+session:
+  name: cha-initiation-2026
+  start_date: "2026-08-08"
+  target:
+    company: "Cha Panda Group Cayman Limited"
+    chinese_name: "霸王茶姬"
+    brand: "CHAGEE"
+    ticker: "CHA"
+    exchange: "NASDAQ"
+    listing_date: "2025-04-17"
+    market: "US"  # US-listed, but operations mainly in China
+  language: zh-CN
+
+scope:
+  years: 3  # 上市 1.5 年, 取近 3 年 (含上市前历史)
+  sources_priority:
+    - sec_edgar      # F-1, 10-K, 10-Q, 8-K (强制)
+    - company_website
+    - mainstream_media
+    - industry_reports  # 灼识 / 沙利文 / 艾瑞
+
+  include_filings:
+    - F-1 prospectus (上市招股书, 2025-04)
+    - 10-K (FY2024 年报, 2025 中提交)
+    - 10-Q (季度报)
+    - 8-K (重大事件)
+    - earnings call transcripts
+    - investor presentations
+
+  include_data:
+    - 价格历史 (上市以来)
+    - 财务三表
+    - 业务数据 (门店数, GMV, 单店销售)
+    - 管理层 / 股东
+    - 同业可比 (蜜雪冰城 / 茶百道 / 古茗 / 奈雪)
+
+  skip:
+    - 内部未公开数据
+    - 客户名单
+    - 内部邮件 / IM
+
+output:
+  base_dir: projects/cha-initiation-2026/
+  deliverables:
+    - 04-analyst/analysis.yaml + analysis.md
+    - 05-writer/report.md + summary.docx + data.xlsx
+    - 06-visual/report-final.pdf + deck.pptx + onepager.png
+    - 99-eval/per-agent/*.md (6 份跑分)
+
+analyst:
+  framework: "graham-buffett-munger"  # 价值投资
+  valuation_methods:
+    - dcf
+    - pe_relative
+    - ps_relative
+  scenarios: ["bear", "base", "bull"]
+  blue_team_min: 3
+  kpi_min: 5
+  target_horizon: 12M
+  rating_system: "buy-hold-sell"  # 头入 / 持有 / 卖出
+
+writer:
+  template: initiation
+  pages: 5
+  language: zh-CN
+  layout_16x9: true
+
+visual:
+  palette: "shouren"  # 守仁配色 (#2b2d42 / #d90429)
+  fonts:
+    latin: Calibri
+    eastasia: SimSun
