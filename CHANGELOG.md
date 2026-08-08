@@ -13,17 +13,22 @@
 - v0.2: X / 10 (Δ +X)
 ```
 
-## [0.0.2] — 2026-08-08 — BitGates Researcher agent 上线
+## [0.0.2] — 2026-08-08 — 守仁研究 (Shouren Researcher) agent 上线
 ### Added
-- `mavis-agents/bitgates-researcher.md` — 卖方研究分析师 agent spec
+- `mavis-agents/shouren-researcher.md` — 守仁资产研究 卖方研究分析师 spec
 - `mavis-agents/README.md` — Mavis agent 索引
 - `mavis-agents/install.sh` — 一键安装脚本
-- `mavis-agents/skills-manifest.md` — 25 个配套 skill 清单 (24 内置, 1 待确认)
-- Ryan 机已 install, 朋友机待 install
+- `mavis-agents/skills-manifest.md` — 24 个配套 skill 清单
+- Ryan 机已 install (`shouren-researcher`), 朋友机待 install
+
+### Changed
+- 从 `bitgates-researcher` (BitGates Research Institute) 改名 `shouren-researcher` (守仁资产研究)
+- 删除 `taste-skill-v1` (本地无此 skill, 不传)
+- 配套 skill 从 25 减为 24, 全内置 ✅
 
 ### Notes
-- agent 名为占位符 `bitgates-researcher`, 机构 `BitGates Research Institute` 也可改
-- 建议改名: `2Mind-researcher` (2Mind Capital 内部用) 或保留 BitGates (外部接活时)
+- agent name / display name / institution 全部更新
+- 朋友机跑 `./install.sh` 自动同步到 `shouren-researcher`
 
 ## [0.0.1] — 2026-08-08 — 协作流闭环验证
 ### Added
