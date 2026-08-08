@@ -103,8 +103,16 @@ def push_file(rel_path: str, content: bytes, commit_msg: str) -> tuple[bool, str
         return True, "ok"
 
     stderr = r.stderr.decode("utf-8", errors="replace")
-    if "already_exists" in stderr or '"sha"' in stderr and "exists" in stderr.lower():
-        # 文件已存在 → 拿 SHA 后 update
+    # 文件已存在的几种 error 表达:
+    # - "sha" wasn't supplied (HTTP 422) — GitHub API 标准响应
+    # - already_exists
+    # - HTTP 422 with Validation Failed
+    needs_sha = (
+        "sha" in stderr and ("wasn't supplied" in stderr or "not supplied" in stderr)
+        or "already_exists" in stderr
+        or "HTTP 422" in stderr
+    )
+    if needs_sha:
         r2 = run(["gh", "api", f"/repos/{REPO_OWNER}/{REPO_NAME}/contents/{rel_path}?ref={BRANCH}"])
         if r2.returncode == 0:
             try:
