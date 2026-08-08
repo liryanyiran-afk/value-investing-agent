@@ -13,6 +13,18 @@
 - v0.2: X / 10 (Δ +X)
 ```
 
+## [0.0.2] — 2026-08-08 — BitGates Researcher agent 上线
+### Added
+- `mavis-agents/bitgates-researcher.md` — 卖方研究分析师 agent spec
+- `mavis-agents/README.md` — Mavis agent 索引
+- `mavis-agents/install.sh` — 一键安装脚本
+- `mavis-agents/skills-manifest.md` — 25 个配套 skill 清单 (24 内置, 1 待确认)
+- Ryan 机已 install, 朋友机待 install
+
+### Notes
+- agent 名为占位符 `bitgates-researcher`, 机构 `BitGates Research Institute` 也可改
+- 建议改名: `2Mind-researcher` (2Mind Capital 内部用) 或保留 BitGates (外部接活时)
+
 ## [0.0.1] — 2026-08-08 — 协作流闭环验证
 ### Added
 - `scripts/push_via_api.py` — Ryan 本机用, 绕 github.com 网络拦
