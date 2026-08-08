@@ -25,36 +25,39 @@ if ! mavis agent list >/dev/null 2>&1; then
     exit 1
 fi
 
-# 装 bitgates-researcher
-if [ -f "bitgates-researcher.md" ]; then
-    if mavis agent get bitgates-researcher >/dev/null 2>&1; then
-        echo "→ bitgates-researcher 已存在, 更新中..."
-        # Mavis 没原生 update command, 用 create (同名会覆盖, 视具体实现)
+# 装 shouren-researcher
+if [ -f "shouren-researcher.md" ]; then
+    AGENT_NAME="shouren-researcher"
+    DISPLAY_NAME="Shouren Research"
+    DESCRIPTION="守仁资产研究 卖方研究分析师, 5 页 PPT + PUA 闭环"
+    if mavis agent get "$AGENT_NAME" >/dev/null 2>&1; then
+        echo "→ $AGENT_NAME 已存在, 更新中..."
+        PROMPT=$(awk '/^````markdown$/{flag=1; next} /^````$/{flag=0} flag' shouren-researcher.md)
         mavis agent update \
-            --agent-name "bitgates-researcher" \
-            --system-prompt "$(cat bitgates-researcher.md)" 2>&1 || \
+            --agent-name "$AGENT_NAME" \
+            --display-name "$DISPLAY_NAME" \
+            --description "$DESCRIPTION" \
+            --system-prompt "$PROMPT" 2>&1 || \
         echo "  (update 失败, 尝试 delete + create)"
     else
-        echo "→ 安装 bitgates-researcher..."
-        # 从 .md 文件提取 system prompt 部分
-        # 文件结构: 元信息 + ````markdown ... ```` 包裹的 system prompt
-        PROMPT=$(awk '/^````markdown$/{flag=1; next} /^````$/{flag=0} flag' bitgates-researcher.md)
+        echo "→ 安装 $AGENT_NAME..."
+        PROMPT=$(awk '/^````markdown$/{flag=1; next} /^````$/{flag=0} flag' shouren-researcher.md)
         mavis agent create \
-            --name "bitgates-researcher" \
-            --display-name "BitGates Researcher" \
-            --description "投行/卖方研究分析师, 5 页 PPT + PUA 闭环" \
+            --name "$AGENT_NAME" \
+            --display-name "$DISPLAY_NAME" \
+            --description "$DESCRIPTION" \
             --system-prompt "$PROMPT"
     fi
-    echo "  ✓ bitgates-researcher 就位"
+    echo "  ✓ $AGENT_NAME 就位"
 else
-    echo "⚠ bitgates-researcher.md 不存在, 跳过"
+    echo "⚠ shouren-researcher.md 不存在, 跳过"
 fi
 
 echo
 echo "=== 安装完成 ==="
 echo
 echo "验证:"
-mavis agent list 2>&1 | grep -A1 "bitgates-researcher" || echo "  (没找到, 查 mavis agent list)"
+mavis agent list 2>&1 | grep -A1 "shouren-researcher" || echo "  (没找到, 查 mavis agent list)"
 echo
 echo "调用示例:"
-echo "  @bitgates-researcher 给 0700.HK 出 Initiation 报告"
+echo "  @shouren-researcher 给 0700.HK 出 Initiation 报告"
