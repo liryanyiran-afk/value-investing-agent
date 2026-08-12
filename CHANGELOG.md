@@ -13,6 +13,26 @@
 - v0.2: X / 10 (Δ +X)
 ```
 
+## [0.0.4] — 2026-08-12 — analyst v0.2 子框架 + 创新药 18A SOP 沉淀 (凌科案首跑)
+
+### Added
+- `prompts/analyst/v0.2-biotech-18a-sop.md` — 创新药 18A 港股 IPO 行研 SOP (6 步法 + POS 表 + 头对头 5 维 + rNPV 6 段式 + 决策价带 + 敏感性 + 10 条陷阱)
+- `prompts/analyst/CHANGELOG.md` — analyst prompt 版本演进记录
+- `eval/scores/2026-08-12-analyst.md` — 凌科药业案跑分 (7.92 / 10, 内部可用, 距客户发线 85 差 8 分)
+
+### Changed
+- ROADMAP 阶段 1: analyst 状态从 🟡 placeholder → 🟢 in-progress (首个真实样例 = 凌科药业)
+
+### Notes
+- 这是 04 analyst 的首个真实样例, 也是 6 步法从 scaffold 到实操的首次验证
+- 跑分卡按 [`eval/scoring-sheets/04-analyst.md`](eval/scoring-sheets/04-analyst.md) 10 维度
+- 关键发现: 结构完整 + 工程化到位 (973 公式 0 错误), 但市占率假设的 5 维 sanity check 是从结构到洞察的核心跨越点
+- 下次研究同类标的 (候选: 派格/旺山/同源康/科伦博泰) 验证 SOP 稳健性
+
+### Eval
+- 04 analyst (凌科案): **7.92 / 10** (内部可用 60 ✅, 投决会 75 ✅, 客户发 85 ❌, 头部对标 90 ❌)
+- 维度细分: 准确性 8 / 完整性 9 / 深度 8 / 可读性 8 / 实用性 8 / 视觉 7 / 估值算法透明度 8 / 错位视角证据强度 8 / 蓝军自攻击 8 / KPI 阈值清晰度 7
+
 ## [0.0.3] — 2026-08-08 — 双层架构 + shouren 归档 (M3 + Pipeline 体系成型)
 
 ### Added
