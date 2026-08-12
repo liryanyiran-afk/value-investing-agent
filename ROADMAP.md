@@ -17,7 +17,7 @@ shouren-researcher 已在 ADR 0002 中降级为参考档案 (`mavis-agents/refer
 | 01 | data-collector | _Ryan / shine040 选其一_ | 🟡 scaffolding | v0.1 placeholder | 数据源接入 |
 | 02 | data-cleaner | _同上_ | 🟡 scaffolding | v0.1 placeholder | 待 01 输出 |
 | 03 | terminal-bridge | _同上_ | 🟡 scaffolding | v0.1 placeholder | 终端 API 凭证 |
-| 04 | analyst | _同上_ | 🟡 scaffolding | v0.1 placeholder → v0.2 起点 | 价值投资框架定稿 |
+| 04 | analyst | _同上_ | 🟢 in-progress | v0.1 placeholder → v0.2 (biotech-18a 子框架) | 通用 prompt 定稿, 多标的验证 |
 | 05 | writer | _同上_ | 🟡 scaffolding | v0.1 placeholder | 买方研报模板 |
 | 06 | visual-designer | _同上_ | 🟡 scaffolding | v0.1 placeholder | 设计规范定稿 |
 
@@ -37,7 +37,7 @@ shouren-researcher 已在 ADR 0002 中降级为参考档案 (`mavis-agents/refer
 
 ## 阶段 1 — 单 agent 跑通 (目标: 1 个真实标的全链路)
 - [ ] **01 data-collector** 能从至少 1 个数据源拿回数据 (候选: 0700.HK 腾讯 2025 年报)
-- [ ] **04 analyst v0.2** 在 1 个真实标的上产出可读分析
+- [x] **04 analyst v0.2** 在 1 个真实标的上产出可读分析 (🟢 in-progress, 凌科药业首跑 7.92/10, 见 [`prompts/analyst/v0.2-biotech-18a-sop.md`](prompts/analyst/v0.2-biotech-18a-sop.md) + [`eval/scores/2026-08-12-analyst.md`](eval/scores/2026-08-12-analyst.md))
   - 起点: 从 `mavis-agents/reference/shouren-researcher.md` 提炼 PUA 6 项 / 三档估值 / 蓝军
   - 详细对照表: [`prompts/analyst/extraction-notes.md`](prompts/analyst/extraction-notes.md)
 - [ ] **05 writer** 输出首份"接近头部机构水平"的研报
